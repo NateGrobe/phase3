@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
 
-const patientRouter = require('./controllers/patientRouter');
+const viewRouter = require('./controllers/viewRouter');
 
 app.get('/', (req, res) => {
   res.send('Hello there!');
 });
 
-app.use('/api/patients', patientRouter);
+app.use('/api', viewRouter);
 
 module.exports = app;
