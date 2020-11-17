@@ -7,6 +7,8 @@ app.get('/', (req, res) => {
   res.send('Hello there!');
 });
 
+require('./routers/routes')(app);
+
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
