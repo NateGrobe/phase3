@@ -1,6 +1,7 @@
+const patientRouter = require('express').Router();
 const Patient = require('../models/patientModel');
 
-exports.findAll = (req, res) => {
+patientRouter.get('/', (req, res) => {
   Patient.getAll((err, data) => {
     if (err) {
       res.status(500).send({
@@ -11,4 +12,7 @@ exports.findAll = (req, res) => {
       res.send(data);
     }
   });
-};
+
+});
+
+module.exports = patientRouter;

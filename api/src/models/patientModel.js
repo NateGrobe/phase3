@@ -1,4 +1,4 @@
-const sql = require('../connection.js');
+const sql = require('../db.js');
 
 const Patient = (patient) => {
   this.id = patient.patient_ID;
