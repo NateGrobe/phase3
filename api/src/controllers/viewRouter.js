@@ -4,7 +4,7 @@ const sql = require('../db.js');
 // view 1
 viewRouter.get('/patients', (req, res) => {
   sql.query(`
-    SELECT p.patient_fName, p.patient_mName, p.patient_lName, n.nurse_name, d.doctor_name, d.doctor_Type
+    SELECT p.patient_ID, p.patient_fName, p.patient_mName, p.patient_lName, n.nurse_name, d.doctor_name, d.doctor_Type
     FROM hospital_data.patients AS p
     JOIN hospital_data.nurses AS n ON p.nurse_ID = n.nurse_ID
     JOIN hospital_data.doctors AS d ON p.doctor_ID = d.doctor_ID`,
@@ -61,7 +61,7 @@ viewRouter.get('/doctors-patients', (req, res) => {
 // view 5
 viewRouter.get('/covid-risk', (req, res) => {
   sql.query(`
-    SELECT p.patient_fName, p.patient_lName FROM hospital_data.patients AS p
+    SELECT p.patient_ID, p.patient_fName, p.patient_lName FROM hospital_data.patients AS p
     WHERE patient_ID = ANY
       (SELECT pv.patient_ID FROM hospital_data.patient_visit AS pv
       WHERE pv.diagnosis LIKE '%heart%' OR pv.diagnosis LIKE '%cardiac%')
