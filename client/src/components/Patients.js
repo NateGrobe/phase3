@@ -21,12 +21,6 @@ const Patients = () => {
             <div className="widget grid-1-3 row">
             {patient.patient_fName}
             </div>
-            
-            
-            
-            
-            
-            
           </div>)}
     </div>
     

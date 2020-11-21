@@ -45,7 +45,7 @@ viewRouter.get('/large-total-billing', (req, res) => {
 // view 4
 viewRouter.get('/doctors-patients', (req, res) => {
   sql.query(`
-    SELECT  d.doctor_Name, d.doctor_Type, p.patient_fName, p.patient_lName
+    SELECT  d.doctor_ID, d.doctor_Name, d.doctor_Type, p.patient_fName, p.patient_lName
     FROM hospital_data.patients AS p
     LEFT JOIN hospital_data.doctors AS d ON p.doctor_ID = d.doctor_ID
     UNION
