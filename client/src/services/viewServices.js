@@ -61,4 +61,15 @@ async function view10() {
   return d;
 }
 
-export default { view1 };
+export default { 
+  view1,
+  view2,
+  view3,
+  view4,
+  view5,
+  view6,
+  view7,
+  view8,
+  view9,
+  view10
+};
