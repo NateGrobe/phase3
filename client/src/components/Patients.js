@@ -16,9 +16,20 @@ const Patients = () => {
 
   console.log(patientData);
   return (
-    <div>
-      {patientData.map(patient => <div key={patient.patient_ID}>{patient.patient_fName}</div>)}
+    <div className="row">
+          {patientData.map(patient => <div  key={patient.patient_ID}>
+            <div className="widget grid-1-3 row">
+            {patient.patient_fName}
+            </div>
+            
+            
+            
+            
+            
+            
+          </div>)}
     </div>
+    
   );
 };
 
