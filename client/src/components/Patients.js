@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import viewServices from '../services/viewServices';
-import 'materialize-css';
-// import { Button, Card, Row, Col } from 'react-materialize';
+//import 'materialize-css';
+//import { Button, Card, Row, Col } from 'react-materialize';
 
 
 
@@ -23,16 +23,13 @@ const Patients = () => {
   console.log(patientData);
   return (
     <div>
-          {patientData.map(patient => <div key={patient.patient_ID} className="widget grid-1-4 row">
-
-          
-                <div className="title">
-                   {patient.patient_fName}
-                </div>
-          
-
-
-          </div>)}
+      {patientData.map(patient =>
+        <div key={patient.patient_ID} className="widget grid-1-4 row">
+          <div className="title">
+             {patient.patient_fName}
+          </div>
+        </div>
+      )}
 
           
   <ul class="collapsible">
