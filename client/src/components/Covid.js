@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import covidServices from '../services/covidServices';
+import viewServices from '../services/viewServices';
 
 const Covid = () => {
   const [totalCases, setTotalCases] = useState(0);
   const [newCases, setNewCases] = useState(0);
+  const [covidPatients, setCovidPatients] = useState([]);
+  const [covidRisk, setCovidRisk] = useState([]);
+  const [heartRisk, setHeartRisk] = useState([]);
 
   async function getTodaysCovidData() {
     const data = await covidServices.getCaseCount();
@@ -12,9 +16,26 @@ const Covid = () => {
     setNewCases(todaysTotal - data[data.length -2].Cases);
   }
 
+  async function getView2() {
+    const data = await viewServices.view2();
+    setCovidPatients(data);
+  }
+
+  async function getView5() {
+    const data = await viewServices.view2();
+    setCovidRisk(data);
+  }
+
+  async function getView10() {
+    const data = await viewServices.view10();
+    setHeartRisk(data);
+  }
 
   useEffect(() => {
     getTodaysCovidData();
+    getView2();
+    getView5();
+    getView10();
   }, []);
 
 
@@ -30,6 +51,14 @@ const Covid = () => {
     <div>
       Current total: {totalCases} cases
       <p>New Cases: {newCases} </p>
+
+      {/* view 2 patients */}
+      <h2>Covid Patients</h2>
+      {covidPatients.map(cp =>
+      <div key={cp.patient_fName}>
+        {cp.patient_fName} {cp.patient_lName}
+      </div>
+      )}
     </div>
   );
 };
