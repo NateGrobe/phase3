@@ -8,10 +8,15 @@ import viewServices from '../services/viewServices';
 const Patients = () => {
   // also add doctor view stuff for multiple filters
   const [patientData, setPatientData] = useState([]);
+  const [filter, setFilter] = useState("");
 
   async function getPatients() {
     const data = await viewServices.view1();
     setPatientData(data);
+  }
+
+  function handleFilter(event) {
+    setFilter(event.target.value);
   }
 
   useEffect(() => {
@@ -20,9 +25,11 @@ const Patients = () => {
 
 
 
-  console.log(patientData);
+  //console.log(patientData);
+  console.log(filter)
   return (
     <div>
+      <input onChange={handleFilter} value={filter} />
       {patientData.map(patient =>
         <div key={patient.patient_ID} className="widget grid-1-4 row">
           <div className="title">
@@ -32,18 +39,18 @@ const Patients = () => {
       )}
 
           
-  <ul class="collapsible">
+  <ul className="collapsible">
     <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+      <div className="collapsible-header"><i className="material-icons">filter_drama</i>First</div>
+      <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
     </li>
     <li>
-      <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+      <div className="collapsible-header"><i className="material-icons">place</i>Second</div>
+      <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
     </li>
     <li>
-      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+      <div className="collapsible-header"><i className="material-icons">whatshot</i>Third</div>
+      <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
     </li>
   </ul>
         
