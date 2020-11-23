@@ -6,7 +6,7 @@ const Patients = () => {
   const [patientData, setPatientData] = useState([]);
   const [filter, setFilter] = useState("");
 
-  async function getPatients() {
+  async function getView1() {
     const data = await viewServices.view1();
     setPatientData(data);
   }
@@ -16,7 +16,7 @@ const Patients = () => {
   }
 
   useEffect(() => {
-    getPatients();
+    getView1();
   }, []);
 
   const filteredPatients = patientData.filter(p => 

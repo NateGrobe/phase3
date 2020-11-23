@@ -38,7 +38,6 @@ const Covid = () => {
     getView10();
   }, []);
 
-
   /*
   const todaysData = allCovidData.slice(Math.max(allCovidData.length - 13, 1));
 
