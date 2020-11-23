@@ -4,6 +4,7 @@ import Employees from './components/Employees';
 import Patients from './components/Patients';
 import Nav from './components/Nav';
 import Billing from './components/Billing';
+import Covid from './components/Covid';
 import viewServices from './services/viewServices';
 
 const App = () => {
@@ -30,6 +31,9 @@ const App = () => {
         </Route>
         <Route path='/billing'>
           <Billing />
+        </Route>
+        <Route path='/covid'>
+          <Covid />
         </Route>
         {/* this bit should display a nice welcome page */}
         <Route path='/'>
