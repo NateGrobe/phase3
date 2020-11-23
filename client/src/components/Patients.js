@@ -31,7 +31,11 @@ const Patients = () => {
   console.log(patientData);
   return (
     <div>
-      <input onChange={handleFilter} value={filter} />
+      <div className="grid-1-1">
+        <div className="button">Filter Search </div>
+      <input type="text" onChange={handleFilter} value={filter} />
+      </div>
+    
       {filteredPatients.map(patient =>
         <div key={patient.patient_ID} className="widget grid-1-4 row">
           <div className="title">
@@ -41,20 +45,6 @@ const Patients = () => {
       )}
 
           
-  <ul className="collapsible">
-    <li>
-      <div className="collapsible-header"><i className="material-icons">filter_drama</i>First</div>
-      <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-    <li>
-      <div className="collapsible-header"><i className="material-icons">place</i>Second</div>
-      <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-    <li>
-      <div className="collapsible-header"><i className="material-icons">whatshot</i>Third</div>
-      <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-  </ul>
         
     </div>
     

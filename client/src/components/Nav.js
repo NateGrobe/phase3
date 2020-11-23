@@ -38,7 +38,10 @@ const Nav = () => {
             <li className="grid-1-5">
                 <span onClick={linkBilling}>COVID-19</span>
             </li>
-        </ul>
+          </ul>
+          <div className="padding">
+
+          </div>
     </div>
   );
 };
