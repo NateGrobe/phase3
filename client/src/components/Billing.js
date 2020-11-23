@@ -2,8 +2,8 @@ import React from 'react';
 
 const Billing = () => {
   return (
-    <div>
-      Billing
+    <div className="font">
+      BILLING
     </div>
   );
 };

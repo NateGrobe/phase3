@@ -2,8 +2,8 @@ import React from 'react';
 
 const Employees = () => {
   return (
-    <div>
-      Employees
+    <div className="font">
+      EMPLOYEES
     </div>
   );
 };
