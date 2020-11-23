@@ -26,8 +26,10 @@ const Patients = () => {
   return (
     <div>
       <div className="grid-1-1">
-        <div className="button">Filter Search </div>
+        <div className="font">PATIENTS</div>
+        
       <input type="text" onChange={handleFilter} value={filter} />
+      <div className="button">Filter Search </div>
       </div>
     
       {filteredPatients.map(patient =>

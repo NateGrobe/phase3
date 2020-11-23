@@ -29,7 +29,7 @@ const Nav = () => {
 
   return (
     <div>
-          <ul className="navBar">
+          <ul className="navBar sticky">
             <li className="grid-1-5">
                 <span onClick={linkHome}>HOME</span>
             </li>

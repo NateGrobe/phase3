@@ -25,7 +25,7 @@ const Home = () => {
   const loginForm = () => {
     return (
       <form onSubmit={handleSignIn}>
-        Employee ID: <input value={eid} onChange={({ target }) => setEid(target.value)}/>
+        Employee ID: <input type="text" value={eid} onChange={({ target }) => setEid(target.value)}/>
         <br/>
         Password: <input type='password' value={epass} onChange={({ target }) => setEpass(target.value)}/>
         <br/>
@@ -47,7 +47,7 @@ const Home = () => {
           </div>}
 
           {signedIn === true &&
-            <div>
+            <div className="titlePage">
               Welcome
             </div>
           }

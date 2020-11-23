@@ -27,9 +27,9 @@ const Covid = () => {
   */
 
   return (
-    <div>
-      Current total: {totalCases} cases
-      <p>New Cases: {newCases} </p>
+    <div className="covidCounter grid-1-1">
+      Total Cases: {totalCases}
+      <p>Today: {newCases} </p>
     </div>
   );
 };
