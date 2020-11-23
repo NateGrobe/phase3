@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import viewServices from '../services/viewServices';
-//import 'materialize-css';
-//import { Button, Card, Row, Col } from 'react-materialize';
-
-
 
 const Patients = () => {
   // also add doctor view stuff for multiple filters
@@ -27,8 +23,6 @@ const Patients = () => {
     p.patient_fName.toUpperCase().includes(filter.toUpperCase()) ||
     p.patient_lName.toUpperCase().includes(filter.toUpperCase()));
 
-
-  console.log(patientData);
   return (
     <div>
       <div className="grid-1-1">
@@ -43,11 +37,7 @@ const Patients = () => {
           </div>
         </div>
       )}
-
-          
-        
     </div>
-    
   );
 };
 
