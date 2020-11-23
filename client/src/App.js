@@ -4,6 +4,7 @@ import Employees from './components/Employees';
 import Patients from './components/Patients';
 import Nav from './components/Nav';
 import Billing from './components/Billing';
+import Covid from './components/Covid';
 import viewServices from './services/viewServices';
 
 const App = () => {
@@ -36,8 +37,8 @@ const App = () => {
           <div className="titlePage">
             Hospital Tech Industries
           </div>
-          <div className="SignUp">
-                SIGN UP FOR FREE
+          <div className="LogIn">
+                Log in
           </div>
           <div className="titleLower">
             Already have a Hospital Tech Account?
@@ -47,6 +48,10 @@ const App = () => {
           </div>
         </div>
           
+        <Route path='/covid'>
+          <Covid />
+        </Route>
+        {/* this bit should display a nice welcome page */}
         <Route path='/'>
         </Route>
       </Switch>
