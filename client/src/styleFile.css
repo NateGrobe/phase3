@@ -66,15 +66,13 @@ ul.navBar > li > span:hover {
     line-height: 40px;
     font-weight: 600;
     font-family: 'Oswald', sans-serif;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 
 .LogIn {
-    /* border: 2px #111 solid; */
     width: 200px;
-    /* height: 50px; */
     display: table-cell;
-    margin: auto;
     color: white;
     text-align: center;
     font-size: 20px;
@@ -82,7 +80,9 @@ ul.navBar > li > span:hover {
     background-color: orange;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     top: 50%;
-    left: 44%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
     position: fixed;
 
 }
@@ -118,3 +118,30 @@ ul.navBar > li > span:hover {
     margin: auto;
     text-align: center;
 }
+
+input[type=text], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .padding {
+      margin: 40px;
+  }
+
+  .button {
+    width: 150px;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    margin-right: 10px;
+    padding: 10 10 10 10;
+    background-color: orange;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
