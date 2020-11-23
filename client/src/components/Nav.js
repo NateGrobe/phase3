@@ -36,16 +36,6 @@ const Nav = () => {
                 <span onClick={linkBilling}>BILLING</span>
             </li>
         </ul>
-
-
-        
-
-      
-  
-      {/* <Link to='/'>Home</Link>
-      <Link to='/patients'>Patients</Link>
-      <Link to='/employees'>Employees</Link>
-      <Link to='/Billing'>Billing</Link> */}
     </div>
   );
 };

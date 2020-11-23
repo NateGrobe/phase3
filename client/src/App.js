@@ -33,7 +33,6 @@ const App = () => {
         </Route>
         {/* this bit should display a nice welcome page */}
         <Route path='/'>
-          Home
         </Route>
       </Switch>
     </div>
