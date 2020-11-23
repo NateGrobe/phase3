@@ -9,14 +9,21 @@ const Nav = () => {
     function linkHome() {
       history.push("/");
     }
+
     function linkPatients() {
       history.push("/patients");
     }
+
     function linkEmployees() {
       history.push("/employees");
     }
+
     function linkBilling() {
-      history.push("/Billing");
+      history.push("/billing");
+    }
+
+    function linkCovid() {
+      history.push("/covid");
     }
 
 
@@ -36,7 +43,7 @@ const Nav = () => {
                 <span onClick={linkBilling}>BILLING</span>
             </li>
             <li className="grid-1-5">
-                <span onClick={linkBilling}>COVID-19</span>
+                <span onClick={linkCovid}>COVID-19</span>
             </li>
         </ul>
     </div>

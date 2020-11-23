@@ -22,12 +22,9 @@ const App = () => {
         <Route path='/billing'>
           <Billing />
         </Route>
-
-          
         <Route path='/covid'>
           <Covid />
         </Route>
-        {/* this bit should display a nice welcome page */}
         <Route path='/'>
           <Home />
         </Route>

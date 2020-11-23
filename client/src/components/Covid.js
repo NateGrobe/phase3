@@ -2,21 +2,34 @@ import React, { useState, useEffect } from 'react';
 import covidServices from '../services/covidServices';
 
 const Covid = () => {
-  const [allCovidData, setAllCovidData] = useState([]);
+  const [totalCases, setTotalCases] = useState(0);
+  const [newCases, setNewCases] = useState(0);
 
-  async function getAllCovidData() {
-    const data = await covidServices.getAllCases();
-    setAllCovidData(data);
+  async function getTodaysCovidData() {
+    const data = await covidServices.getCaseCount();
+    const todaysTotal = data[data.length -1].Cases;
+    setTotalCases(todaysTotal);
+    setNewCases(todaysTotal - data[data.length -2].Cases);
   }
 
+
   useEffect(() => {
-    getAllCovidData();
+    getTodaysCovidData();
   }, []);
 
-  console.log(allCovidData.length);
+
+  /*
+  const todaysData = allCovidData.slice(Math.max(allCovidData.length - 13, 1));
+
+  if (todaysData.length > 0 && totalCases === 0) {
+    totalCases = todaysData.map(d => d.Cases).reduce((total, amt) => total + amt);
+  }
+  */
+
   return (
     <div>
-      Covid
+      Current total: {totalCases} cases
+      <p>New Cases: {newCases} </p>
     </div>
   );
 };
