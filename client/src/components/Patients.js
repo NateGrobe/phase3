@@ -33,7 +33,7 @@ const Patients = () => {
       </div>
     
       {filteredPatients.map(patient =>
-        <div key={patient.patient_ID} className="grid-1-4 row">
+        <div key={patient.patient_ID} className="grid-1-2 row">
           <div className="widget">
               <div className="title">
                 {patient.patient_fName} {patient.patient_lName}
