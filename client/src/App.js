@@ -31,7 +31,22 @@ const App = () => {
         <Route path='/billing'>
           <Billing />
         </Route>
-        {/* this bit should display a nice welcome page */}
+
+        <div className="grid-1-1">
+          <div className="titlePage">
+            Hospital Tech Industries
+          </div>
+          <div className="SignUp">
+                SIGN UP FOR FREE
+          </div>
+          <div className="titleLower">
+            Already have a Hospital Tech Account?
+          </div>
+          <div className="titleLogin">
+            Log In
+          </div>
+        </div>
+          
         <Route path='/'>
         </Route>
       </Switch>
