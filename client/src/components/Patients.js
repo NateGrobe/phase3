@@ -26,12 +26,14 @@ const Patients = () => {
   return (
     <div>
       <div className="grid-1-1">
-        <div className="button">Filter Search </div>
+        <div className="font">PATIENTS</div>
+        
       <input type="text" onChange={handleFilter} value={filter} />
+      <div className="button">Filter Search </div>
       </div>
     
       {filteredPatients.map(patient =>
-        <div key={patient.patient_ID} className="grid-1-4 row">
+        <div key={patient.patient_ID} className="grid-1-2 row">
           <div className="widget">
               <div className="title">
                 {patient.patient_fName} {patient.patient_lName}

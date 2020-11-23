@@ -48,17 +48,9 @@ const Covid = () => {
   */
 
   return (
-    <div>
-      Current total: {totalCases} cases
-      <p>New Cases: {newCases} </p>
-
-      {/* view 2 patients */}
-      <h2>Covid Patients</h2>
-      {covidPatients.map(cp =>
-      <div key={cp.patient_fName}>
-        {cp.patient_fName} {cp.patient_lName}
-      </div>
-      )}
+    <div className="covidCounter grid-1-1">
+      Total Cases: {totalCases}
+      <p>Today: {newCases} </p>
     </div>
   );
 };

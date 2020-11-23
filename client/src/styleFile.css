@@ -1,5 +1,9 @@
 body {
     background-image: url("hospitalWallpaper.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 20;
+    padding-top: 80px;
 }
 
 ul.navBar {
@@ -10,6 +14,7 @@ ul.navBar {
     /*width: max-content;*/
     margin: 0 auto;
     height: 100px;
+    margin-left: -20px;
 }
 ul.navBar > li {
     float: left;
@@ -32,6 +37,12 @@ ul.navBar > li > span:hover {
     background-color: #111;
     cursor: pointer;
 }
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
 
 .grid-1-1{
     width: 100%;
@@ -57,12 +68,13 @@ ul.navBar > li > span:hover {
     float: left;
     margin: 20px 0;
 }
+
 .widget {
     border: 2px #111 solid;
     background-color: lightgrey;
     border-radius: 15px;
     padding: 5px;
-    margin: 20 20px;
+    margin-right: 10px;
     font-size: 25px;
     line-height: 40px;
     font-weight: 600;
@@ -121,7 +133,7 @@ ul.navBar > li > span:hover {
     text-align: center;
 }
 
-input[type=text], select {
+input{
     width: 50%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -130,6 +142,20 @@ input[type=text], select {
     border-radius: 4px;
     box-sizing: border-box;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  button {
+    width: 150px;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    margin-right: 10px;
+    padding: 10 10 10 10;
+    background-color: orange;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+    border: 0;
   }
 
   .padding {
@@ -143,8 +169,26 @@ input[type=text], select {
     text-align: center;
     font-size: 20px;
     margin-right: 10px;
+    margin-left: 20px;
     padding: 10 10 10 10;
     background-color: orange;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     cursor: pointer;
+  }
+
+  form {
+      color: white;
+  }
+
+  .covidCounter {
+      font-size: 50px;
+      display: inline-block;
+      text-align: center;
+      color: white;
+
+  }
+  
+  .font {
+    font-family: 'Aldrich', sans-serif;
+    color: white;
   }
