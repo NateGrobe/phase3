@@ -37,9 +37,17 @@ const Patients = () => {
       </div>
     
       {filteredPatients.map(patient =>
-        <div key={patient.patient_ID} className="widget grid-1-4 row">
-          <div className="title">
-             {patient.patient_fName}
+        <div key={patient.patient_ID} className="grid-1-4 row">
+          <div className="widget">
+              <div className="title">
+                {patient.patient_fName} {patient.patient_lName}
+              </div>
+              <div>
+                  Doctor: {patient.doctor_name}
+              </div>
+              <div>
+                  Profession: {patient.doctor_Type}
+              </div>
           </div>
         </div>
       )}
