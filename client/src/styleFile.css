@@ -59,9 +59,10 @@ ul.navBar > li > span:hover {
 }
 .widget {
     border: 2px #111 solid;
+    background-color: lightgrey;
     border-radius: 15px;
     padding: 5px;
-    margin: 0 20px;
+    margin: 20 20px;
     font-size: 25px;
     line-height: 40px;
     font-weight: 600;
@@ -84,6 +85,7 @@ ul.navBar > li > span:hover {
     margin-top: -50px;
     margin-left: -100px;
     position: fixed;
+    cursor: pointer;
 
 }
 
@@ -144,4 +146,5 @@ input[type=text], select {
     padding: 10 10 10 10;
     background-color: orange;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
   }
