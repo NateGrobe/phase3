@@ -23,14 +23,16 @@ const Patients = () => {
     getPatients();
   }, []);
 
+  const filteredPatients = patientData.filter(p => 
+    p.patient_fName.toUpperCase().includes(filter.toUpperCase()) ||
+    p.patient_lName.toUpperCase().includes(filter.toUpperCase()));
 
 
-  //console.log(patientData);
-  console.log(filter)
+  console.log(patientData);
   return (
     <div>
       <input onChange={handleFilter} value={filter} />
-      {patientData.map(patient =>
+      {filteredPatients.map(patient =>
         <div key={patient.patient_ID} className="widget grid-1-4 row">
           <div className="title">
              {patient.patient_fName}
