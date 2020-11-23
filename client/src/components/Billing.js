@@ -36,10 +36,14 @@ const Billing = () => {
       BILLING
 
       <table>
-        <th>Patient</th>
-        <th>Services</th>
-        <th>Total Price</th>
-        <th>Outstanding Balance</th>
+        <thead>
+          <tr>
+            <th>Patient</th>
+            <th>Services</th>
+            <th>Total Price</th>
+            <th>Outstanding Balance</th>
+          </tr>
+        </thead>
         <tbody>
           {billingTable.map(bill =>
             <tr key={bill.billing_ID}>
