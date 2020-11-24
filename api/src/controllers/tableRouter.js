@@ -19,4 +19,31 @@ viewRouter.get('/patients', (req, res) => {
   });
 });
 
+viewRouter.get('/doctors', (req, res) => {
+  sql.query(`
+    SELECT * FROM hospital_data.doctors`,
+  (err, result) => {
+    if (err) throw err;
+    res.send(result);
+  });
+});
+
+viewRouter.get('/nurses', (req, res) => {
+  sql.query(`
+    SELECT * FROM hospital_data.nurses`,
+  (err, result) => {
+    if (err) throw err;
+    res.send(result);
+  });
+});
+
+viewRouter.get('/patient-visit', (req, res) => {
+  sql.query(`
+    SELECT * FROM hospital_data.patient_visit`,
+  (err, result) => {
+    if (err) throw err;
+    res.send(result);
+  });
+});
+
 module.exports = viewRouter;
