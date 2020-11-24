@@ -5,4 +5,9 @@ async function getBillingTable() {
   return res.data;
 }
 
-export default { getBillingTable }
+async function getPatientsTable() {
+  const res = await axios.get('/api/tables/patients');
+  return res.data;
+}
+
+export default { getBillingTable, getPatientsTable }
