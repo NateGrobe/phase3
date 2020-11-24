@@ -46,7 +46,7 @@ const Billing = () => {
         </thead>
         <tbody>
           {billingTable.map(bill =>
-            <tr key={bill.billing_ID}>
+            <tr className="odd" key={bill.billing_ID}>
               <td>{bill.patient_ID}</td>
               <td>{bill.services}</td>
               <td>{bill.price_Total}</td>
