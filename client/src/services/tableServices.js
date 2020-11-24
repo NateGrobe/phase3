@@ -10,4 +10,25 @@ async function getPatientsTable() {
   return res.data;
 }
 
-export default { getBillingTable, getPatientsTable }
+async function getDoctorsTable() {
+  const res = await axios.get('/api/tables/doctors');
+  return res.data;
+}
+
+async function getNursesTable() {
+  const res = await axios.get('/api/tables/nurses');
+  return res.data;
+}
+
+async function getPatientVisitTable() {
+  const res = await axios.get('/api/tables/patient-visit');
+  return res.data;
+}
+
+export default { 
+  getBillingTable,
+  getPatientsTable,
+  getDoctorsTable,
+  getNursesTable,
+  getPatientVisitTable
+}
