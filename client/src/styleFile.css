@@ -70,16 +70,25 @@ ul.navBar > li > span:hover {
 }
 
 .widget {
-    border: 2px #111 solid;
-    background-color: lightgrey;
+    border: 1px #111 solid;
+    background-color: white;
     border-radius: 15px;
-    padding: 5px;
+    padding: 10px;
     margin-right: 10px;
     font-size: 25px;
     line-height: 40px;
     font-weight: 600;
     font-family: 'Oswald', sans-serif;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.widgetTitle {
+    color: teal;
+}
+
+.widgetBody {
+    padding: 10px;
+    display: inline;
 }
 
 
