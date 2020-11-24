@@ -8,11 +8,11 @@ import Heartrisk from './Heartrisk';
 
 const Covid = () => {
   const [patientTable, setPatientTable] = useState([]);
-  const [totalCases, setTotalCases] = useState(0);
-  const [newCases, setNewCases] = useState(0);
   const [covidPatients, setCovidPatients] = useState([]);
   const [covidRisk, setCovidRisk] = useState([]);
   const [heartRisk, setHeartRisk] = useState([]);
+  const [totalCases, setTotalCases] = useState(0);
+  const [newCases, setNewCases] = useState(0);
   const [showCP, setShowCP] = useState(true);
   const [showCR, setShowCR] = useState(false);
   const [showHR, setShowHR] = useState(false);
@@ -75,8 +75,8 @@ const Covid = () => {
 
   return (
     <div className="covidCounter grid-1-1">
-      Total Covid-19 Cases in Canada: {totalCases}
-      <p>Today: {newCases} </p>
+      <p>Total Covid-19 Cases in Canada: {totalCases}</p>
+      <p>Today: {newCases}</p>
 
       <button onClick={showCovidPatients}>Covid Patients</button>
       <button onClick={showCovidRisk}>Covid Risk Patients</button>
