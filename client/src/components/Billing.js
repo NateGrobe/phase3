@@ -76,9 +76,9 @@ const Billing = () => {
           </tr>
         </thead>
         <tbody>
-          {filteredBills.map((bill, i) =>
+          {filteredBills.map(bill =>
             <tr key={bill.billing_ID}>
-              <td>{i+1}</td>
+              <td>{bill.patient_ID}</td>
               <td>{bill.services}</td>
               <td>${bill.price_Total}</td>
               <td>${bill.oustanding_Balance}</td>
