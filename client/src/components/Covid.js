@@ -5,14 +5,16 @@ import tableServices from '../services/tableServices';
 import Covidcases from './Covidcases';
 import Covidrisk from './Covidrisk';
 import Heartrisk from './Heartrisk';
+import CovidByCountry from './CovidByCountry';
 
 const Covid = () => {
   const [patientTable, setPatientTable] = useState([]);
-  const [totalCases, setTotalCases] = useState(0);
-  const [newCases, setNewCases] = useState(0);
   const [covidPatients, setCovidPatients] = useState([]);
   const [covidRisk, setCovidRisk] = useState([]);
   const [heartRisk, setHeartRisk] = useState([]);
+  const [covidData, setCovidData] = useState([]);
+  const [totalCases, setTotalCases] = useState(0);
+  const [newCases, setNewCases] = useState(0);
   const [showCP, setShowCP] = useState(true);
   const [showCR, setShowCR] = useState(false);
   const [showHR, setShowHR] = useState(false);
@@ -44,12 +46,18 @@ const Covid = () => {
     setPatientTable(data);
   }
 
+  async function updateStats() {
+    const data = await covidServices.updateCovidData();
+    setCovidData(data);
+  }
+
   useEffect(() => {
     getTodaysCovidData();
     getView2();
     getView5();
     getView10();
     getCovidTable();
+    updateStats();
   }, []);
 
   function showCovidPatients() {
@@ -75,8 +83,9 @@ const Covid = () => {
 
   return (
     <div className="covidCounter grid-1-1">
-      Total Covid-19 Cases in Canada: {totalCases}
-      <p>Today: {newCases} </p>
+      <button onClick={updateStats}>Update Covid Stats</button>
+      <p>Total Covid-19 Cases in Canada: {totalCases}</p>
+      <p>Today: {newCases}</p>
 
       <button onClick={showCovidPatients}>Covid Patients</button>
       <button onClick={showCovidRisk}>Covid Risk Patients</button>
@@ -85,6 +94,9 @@ const Covid = () => {
       {showCP && <Covidcases cp={covidPatients} />}
       {showCR && <Covidrisk cr={covidRisk} />}
       {showHR && <Heartrisk hr={hrp} />}
+
+      <h3>Covid Data</h3>
+      <CovidByCountry cd={covidData} />
     </div>
   );
 };

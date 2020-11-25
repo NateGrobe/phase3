@@ -1,7 +1,7 @@
-const viewRouter = require('express').Router();
+const tableRouter = require('express').Router();
 const sql = require('../db.js');
 
-viewRouter.get('/billing', (req, res) => {
+tableRouter.get('/billing', (req, res) => {
   sql.query(`
     SELECT * FROM hospital_data.billing`,
   (err, result) => {
@@ -10,7 +10,7 @@ viewRouter.get('/billing', (req, res) => {
   });
 });
 
-viewRouter.get('/patients', (req, res) => {
+tableRouter.get('/patients', (req, res) => {
   sql.query(`
     SELECT * FROM hospital_data.patients`,
   (err, result) => {
@@ -19,7 +19,7 @@ viewRouter.get('/patients', (req, res) => {
   });
 });
 
-viewRouter.get('/doctors', (req, res) => {
+tableRouter.get('/doctors', (req, res) => {
   sql.query(`
     SELECT * FROM hospital_data.doctors`,
   (err, result) => {
@@ -28,7 +28,7 @@ viewRouter.get('/doctors', (req, res) => {
   });
 });
 
-viewRouter.get('/nurses', (req, res) => {
+tableRouter.get('/nurses', (req, res) => {
   sql.query(`
     SELECT * FROM hospital_data.nurses`,
   (err, result) => {
@@ -37,7 +37,7 @@ viewRouter.get('/nurses', (req, res) => {
   });
 });
 
-viewRouter.get('/patient-visit', (req, res) => {
+tableRouter.get('/patient-visit', (req, res) => {
   sql.query(`
     SELECT * FROM hospital_data.patient_visit`,
   (err, result) => {
@@ -46,4 +46,4 @@ viewRouter.get('/patient-visit', (req, res) => {
   });
 });
 
-module.exports = viewRouter;
+module.exports = tableRouter;
