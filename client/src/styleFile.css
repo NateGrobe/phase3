@@ -160,7 +160,7 @@ ul.navBar > li > span:hover {
 input{
     width: 25%;
     padding: 12px 20px;
-    margin: 8px 0;
+    margin: 8px 8px 10px 0px;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -259,3 +259,21 @@ table th {
     margin-left: -250px;
 }
 
+.addPatient {
+    z-index: 100;
+    top: 40%;
+    left: 50%;
+    position: absolute;
+    margin-top: -100px;
+    margin-left: -250px;
+    border: 1px #111 solid;
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+    margin-right: 10px;
+    font-size: 25px;
+    line-height: 40px;
+    font-weight: 600;
+    font-family: 'Oswald', sans-serif;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

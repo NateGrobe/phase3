@@ -64,19 +64,21 @@ const Patients = () => {
 
   const addPatientForm = () => {
     return (
-      <form onSubmit={addPatient}>
-        First Name <input value={pfName} onChange={({ target }) => setPfName(target.value)} />
-        <br/>
-        Middle Name <input value={pmName} onChange={({ target }) => setPmName(target.value)} />
-        <br/>
-        Last Name <input value={plName} onChange={({ target }) => setPlName(target.value)} />
-        <br/>
-        Doctor ID <input value={docID} onChange={({ target }) => setDocID(target.value)}/>
-        <br/>
-        Nurse ID <input value={nurseID} onChange={({ target }) => setNurseID(target.value)}/>
-        <br/>
-        <button type='submit'>Add</button>
-      </form>
+      <div className="addPatient">
+        <form onSubmit={addPatient}>
+          First Name <input value={pfName} onChange={({ target }) => setPfName(target.value)} />
+          <br/>
+          Middle Name <input value={pmName} onChange={({ target }) => setPmName(target.value)} />
+          <br/>
+          Last Name <input value={plName} onChange={({ target }) => setPlName(target.value)} />
+          <br/>
+          Doctor ID <input value={docID} onChange={({ target }) => setDocID(target.value)}/>
+          <br/>
+          Nurse ID <input value={nurseID} onChange={({ target }) => setNurseID(target.value)}/>
+          <br/>
+          <button type='submit'>Add</button>
+        </form>
+      </div>
     );
   }
 
@@ -91,6 +93,7 @@ const Patients = () => {
         <div className="font"><h3>PATIENTS</h3></div>
         
         <input type="text" placeholder="Search" onChange={handleFilter} value={filter} />
+        <button onClick={() => setShowAP(!showAP)}>{showAP ? "Hide" : "Add Patient"}</button>
       </div>
     
       <table>
@@ -116,8 +119,8 @@ const Patients = () => {
         </tbody>
       </table>
 
-      <button onClick={() => setShowAP(!showAP)}>{showAP ? "Hide" : "Add Patient"}</button>
-      {showAP && addPatientForm()}
+        {showAP && addPatientForm()}
+      
     </div>
   );
 };
