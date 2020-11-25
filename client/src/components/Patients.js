@@ -81,6 +81,7 @@ const Patients = () => {
           Nurse ID <input value={nurseID} onChange={({ target }) => setNurseID(target.value)}/>
           <br/>
           <button type='submit'>Add</button>
+          <button onClick={() => setShowAP(false)}>Cancel</button>
         </form>
       </div>
     );
@@ -97,7 +98,7 @@ const Patients = () => {
         <div className="font"><h3>PATIENTS</h3></div>
         
         <input type="text" placeholder="Search" onChange={handleFilter} value={filter} />
-        <button onClick={() => setShowAP(!showAP)}>{showAP ? "Hide" : "Add Patient"}</button>
+        {!showAP && <button onClick={() => setShowAP(true)}>Add Patient</button>}
       </div>
     
       <table>
