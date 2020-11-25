@@ -15,7 +15,7 @@ const Home = () => {
     if (loggedUser) {
       setLogin(false);
       setSignedIn(true);
-      setCurrentUser(loggedUser.loggedUser);
+      setCurrentUser(loggedUser);
     }
   }, []);
 
@@ -45,7 +45,7 @@ const Home = () => {
   const loginForm = () => {
     return (
       <form onSubmit={handleSignIn}>
-        Employee ID: <input type="text" value={eid} onChange={({ target }) => setEid(target.value)}/>
+        Employee: <input type="text" value={eid} onChange={({ target }) => setEid(target.value)}/>
         <br/>
         Password: <input type='password' value={epass} onChange={({ target }) => setEpass(target.value)}/>
         <br/>
@@ -69,7 +69,7 @@ const Home = () => {
           {signedIn === true &&
             <div>
               <div className="welcome">
-                Welcome back 
+                Welcome back {currentUser}
               </div>
               <button onClick={handleSignOut}>Signout</button>
             </div>
