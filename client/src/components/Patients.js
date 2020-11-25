@@ -5,8 +5,14 @@ import tableServices from '../services/tableServices';
 const Patients = () => {
   // also add doctor view stuff for multiple filters
   const [patientData, setPatientData] = useState([]);
-  const [filter, setFilter] = useState("");
   const [pv, setPv] = useState([]);
+  const [filter, setFilter] = useState("");
+  const [pfName, setPfName] = useState("");
+  const [pmName, setPmName] = useState("");
+  const [plName, setPlName] = useState("");
+  const [docID, setDocID] = useState("");
+  const [nurseID, setNurseID] = useState("");
+  const [showAP, setShowAP] = useState(false);
 
   async function getView1() {
     const data = await viewServices.view1();
@@ -18,6 +24,25 @@ const Patients = () => {
     setPv(data);
   }
 
+  async function addPatient(event) {
+    const patient = {
+      patient_fName: pfName,
+      patient_mName: pmName,
+      patient_lName: plName,
+      doctor_ID: Number(docID),
+      nurse_ID: Number(nurseID),
+      deceased: 0
+    };
+
+    await tableServices.addPatient(patient);
+    setPfName("");
+    setPmName("");
+    setPlName("");
+    setDocID("");
+    setNurseID("");
+    setShowAP(false);
+  }
+
   function handleFilter(event) {
     setFilter(event.target.value);
   }
@@ -27,14 +52,32 @@ const Patients = () => {
     getPV();
   }, []);
 
-  function downloadPatientHistory(pid) {
+  function downloadPatientHistory(pid, fname, lname) {
     const element = document.createElement("a");
     const patientData = pv.filter(p => p.patient_ID === pid);
     const file = new Blob([JSON.stringify(patientData)], {type: 'text/json'});
     element.href = URL.createObjectURL(file);
-    element.download = "patient-data.json";
+    element.download = `${fname}-${lname}-history.json`;
     document.body.appendChild(element); // Required for this to work in FireFox
     element.click();
+  }
+
+  const addPatientForm = () => {
+    return (
+      <form onSubmit={addPatient}>
+        First Name <input value={pfName} onChange={({ target }) => setPfName(target.value)} />
+        <br/>
+        Middle Name <input value={pmName} onChange={({ target }) => setPmName(target.value)} />
+        <br/>
+        Last Name <input value={plName} onChange={({ target }) => setPlName(target.value)} />
+        <br/>
+        Doctor ID <input value={docID} onChange={({ target }) => setDocID(target.value)}/>
+        <br/>
+        Nurse ID <input value={nurseID} onChange={({ target }) => setNurseID(target.value)}/>
+        <br/>
+        <button type='submit'>Add</button>
+      </form>
+    );
   }
 
   const filteredPatients = patientData.filter(p => 
@@ -61,15 +104,20 @@ const Patients = () => {
         </thead>
         <tbody>
           {filteredPatients.map(p =>
-          <tr key={p.patient_ID}>
+          <tr key={p.patient_ID || patientData.length}>
             <td>{p.patient_fName} {p.patient_mName} {p.patient_lName}</td>
             <td>{p.doctor_name}, {p.doctor_Type}</td>
             <td>{p.nurse_name}</td>
-            <td><button onClick={() => downloadPatientHistory(p.patient_ID)}>Download Records</button></td>
+            <td><button onClick={() => downloadPatientHistory(p.patient_ID, p.patient_fName, p.patient_lName)}>
+              Download Records
+            </button></td>
           </tr>
           )}
         </tbody>
       </table>
+
+      <button onClick={() => setShowAP(!showAP)}>{showAP ? "Hide" : "Add Patient"}</button>
+      {showAP && addPatientForm()}
     </div>
   );
 };

@@ -80,7 +80,7 @@ const Home = () => {
 
         </div>
         }
-      {login === true && loginForm()}
+      {login && loginForm()}
     </div>
   );
 };

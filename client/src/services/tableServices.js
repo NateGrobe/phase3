@@ -25,10 +25,16 @@ async function getPatientVisitTable() {
   return res.data;
 }
 
+async function addPatient(data) {
+  const res = await axios.post('/api/tables/patients', data);
+  return res.data;
+}
+
 export default { 
   getBillingTable,
   getPatientsTable,
   getDoctorsTable,
   getNursesTable,
-  getPatientVisitTable
+  getPatientVisitTable,
+  addPatient
 }
