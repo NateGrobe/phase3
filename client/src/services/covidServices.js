@@ -1,21 +1,21 @@
+// link to api endpoints
 //https://documenter.getpostman.com/view/10808728/SzS8rjbc#9739c95f-ef1d-489b-97a9-0a6dfe2f74d8
 
-// NOTE: this api doesn't have data for nunavut
 import axios from 'axios';
 
+// canada data per day
 async function getCaseCount() {
   const res = await axios.get('https://api.covid19api.com/total/dayone/country/canada/status/confirmed');
   return res.data;
 }
 
-// need to switch to the other endpoint:
-// https://api.covid19api.com/summary
+// global covid data
 async function updateCovidData() {
   const url = 'http://localhost:5000/api/covid';
-  const raw_data = await axios.get('https://api.covid19api.com/summary');
-  const data = raw_data.data.Countries;
-
-  await axios.delete(url);
+  const rawData = await axios.get('https://api.covid19api.com/summary');
+  const data = rawData.data.Countries;
+  const currentData = await axios.get(url);
+  const updatedData = [];
 
   for(let i = 0; i < data.length; i++) {
     const d = data[i];
@@ -28,7 +28,14 @@ async function updateCovidData() {
       new_recovered: d.NewRecovered,
       total_recovered: d.TotalRecovered,
     }
-    await axios.post(url, country);
+    updatedData.push(country);
+  }
+
+  if (!(currentData.data[181].total_cases === updatedData[181].total_cases)) {
+    await axios.delete(url);
+    for(let i = 0; i < data.length; i++) {
+      await axios.post(url, currentData[i]);
+    }
   }
 
   const res = await axios.get(url);
