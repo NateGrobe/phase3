@@ -80,6 +80,7 @@ const Patients = () => {
             <th>Patient</th>
             <th>Doctor</th>
             <th>Nurse</th>
+            <th>Download</th>
           </tr>
         </thead>
         <tbody>

@@ -62,10 +62,13 @@ const Billing = () => {
   return (
     <div className="font">
       BILLING
-
+      <br/>
+      <br/>
       <button onClick={showAllBills}>All</button>
       <button onClick={filterLB}>Large Balances</button>
       <button onClick={filterOB}>Outstanding Balances</button>
+      <br/>
+      <br/>
       <table>
         <thead>
           <tr>

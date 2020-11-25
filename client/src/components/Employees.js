@@ -83,7 +83,7 @@ const Employees = () => {
       <button onClick={showBusyStaff}>Busy Staff</button>
       <button onClick={showDocPat}>Doctors By Patient</button>
 
-
+    
       {showAS && <Allstaff dt={docTable} nt={nurseTable} />}
       {showBS && <Busystaff dt={docTable} nt={nurseTable} bd={busyDocs} bn={busyNurses} />}
       {bp && <DocPatients dp={docPatients} />}
@@ -92,7 +92,7 @@ const Employees = () => {
       <br/>
       <br/>
       Open Rooms
-      <table>
+      <table id="openRooms">
         <thead>
           <tr>
             <th>Room Number</th>
