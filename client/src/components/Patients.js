@@ -63,7 +63,7 @@ const Patients = () => {
           {filteredPatients.map(p =>
           <tr key={p.patient_ID}>
             <td>{p.patient_fName} {p.patient_mName} {p.patient_lName}</td>
-            <td>{p.doctor_name} {p.doctor_Type}</td>
+            <td>{p.doctor_name}, {p.doctor_Type}</td>
             <td>{p.nurse_name}</td>
             <td><button onClick={() => downloadPatientHistory(p.patient_ID)}>Download Records</button></td>
           </tr>
