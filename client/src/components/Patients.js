@@ -42,8 +42,6 @@ const Patients = () => {
     p.patient_mName.toUpperCase().includes(filter.toUpperCase()) ||
     p.patient_lName.toUpperCase().includes(filter.toUpperCase()));
 
-    console.log(patientData);
-
   return (
     <div>
       <div className="grid-1-1">
@@ -53,27 +51,6 @@ const Patients = () => {
         <div className="button">Filter Search</div>
       </div>
     
-      {/*filteredPatients.map(patient =>
-        <div key={patient.patient_ID} className="grid-1-2 row">
-          <div className="widget">
-              <div className="widgetTitle">
-                {patient.patient_fName} {patient.patient_lName}
-              </div>
-              <div className="widgetBody">
-                  <div>
-                      Doctor: {patient.doctor_name}
-                  </div>
-                  <div>
-                      Profession: {patient.doctor_Type}
-                  </div>
-              </div>
-              <div className="widgetBody">
-                  
-              </div>
-          </div>
-        </div>
-      )*/}
-
       <table>
         <thead>
           <tr>
