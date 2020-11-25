@@ -18,6 +18,7 @@ const Covid = () => {
   const [showCP, setShowCP] = useState(true);
   const [showCR, setShowCR] = useState(false);
   const [showHR, setShowHR] = useState(false);
+  const [covidFilter, setCovidFilter] = useState('');
 
   async function getTodaysCovidData() {
     const data = await covidServices.getCaseCount();
@@ -78,6 +79,9 @@ const Covid = () => {
     setShowHR(true);
   }
 
+  const filteredCovidData = covidData.filter(d =>
+  d.country.toUpperCase().includes(covidFilter.toUpperCase()));
+
   const hrpid = heartRisk.map(hr => hr.patient_ID);
   const hrp = patientTable.filter(p => hrpid.includes(p.patient_ID));
 
@@ -94,8 +98,9 @@ const Covid = () => {
       {showCR && <Covidrisk cr={covidRisk} />}
       {showHR && <Heartrisk hr={hrp} />}
 
-      <h3>Covid Data</h3>
-      <CovidByCountry cd={covidData} />
+      <h3>Global Covid Data</h3>
+      <input value={covidFilter} onChange={({ target }) => setCovidFilter(target.value)} />
+      <CovidByCountry cd={filteredCovidData} />
     </div>
   );
 };
