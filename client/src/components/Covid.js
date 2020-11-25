@@ -87,19 +87,21 @@ const Covid = () => {
 
   return (
     <div className="covidCounter grid-1-1">
-      <p>Total Covid-19 Cases in Canada: {totalCases}</p>
-      <p>New Cases Today: {newCases}</p>
+      <div className="textCenter">
+        <p>Total Covid-19 Cases in Canada: {totalCases}</p>
+        <p>New Cases Today: {newCases}</p>
 
-      <button onClick={showCovidPatients}>Covid Patients</button>
-      <button onClick={showCovidRisk}>Covid Risk Patients</button>
-      <button onClick={showHeartRisk}>Heart Risk Patients</button>
-      
-      {showCP && <Covidcases cp={covidPatients} />}
-      {showCR && <Covidrisk cr={covidRisk} />}
-      {showHR && <Heartrisk hr={hrp} />}
+        <button onClick={showCovidPatients}>Covid Patients</button>
+        <button onClick={showCovidRisk}>Covid Risk Patients</button>
+        <button onClick={showHeartRisk}>Heart Risk Patients</button>
+    
+        {showCP && <Covidcases cp={covidPatients} />}
+        {showCR && <Covidrisk cr={covidRisk} />}
+        {showHR && <Heartrisk hr={hrp} />}
 
-      <h3>Global Covid Data</h3>
-      <input value={covidFilter} onChange={({ target }) => setCovidFilter(target.value)} />
+        <h3>Global Covid Data</h3>
+      </div>
+      <input value={covidFilter} placeholder="Search" type="text" onChange={({ target }) => setCovidFilter(target.value)} />
       <CovidByCountry cd={filteredCovidData} />
     </div>
   );
