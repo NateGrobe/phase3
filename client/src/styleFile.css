@@ -111,7 +111,7 @@ ul.navBar > li > span:hover {
     padding: 10 10 10 10;
     background-color: orange;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    top: 60%;
+    top: 70%;
     left: 50%;
     margin-top: -50px;
     margin-left: -100px;
@@ -196,7 +196,8 @@ input{
   }
 
   form {
-      color: white;
+      /* color: white; */
+      padding: 20px;
   }
 
   .covidCounter {
@@ -235,4 +236,20 @@ table th {
   text-align: left;
   background-color: orange;
   color: white;
+}
+
+.signIn {
+    border: 1px #111 solid;
+    width: 25%;
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+    font-family: 'Oswald', sans-serif;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    top: 40%;
+    left: 50%;
+    position: fixed;
+    margin-top: -100px;
+    margin-left: -250px;
 }
