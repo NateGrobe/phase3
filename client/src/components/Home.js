@@ -6,6 +6,7 @@ const Home = () => {
   const [eid, setEid] = useState('');
   const [epass, setEpass] = useState('');
   const [signedIn, setSignedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
 
   let history = useHistory();
 
@@ -14,6 +15,7 @@ const Home = () => {
     if (loggedUser) {
       setLogin(false);
       setSignedIn(true);
+      setCurrentUser(loggedUser.loggedUser);
     }
   }, []);
 
@@ -23,10 +25,11 @@ const Home = () => {
     event.preventDefault();
     if (eid.length > 0 && epass === 'pass') {
       setLogin(false);
+      window.localStorage.setItem('loggedUser', eid);
+      setCurrentUser(eid);
       setEid('');
       setEpass('');
       setSignedIn(true);
-      window.localStorage.setItem('loggedUser', eid);
     } else {
       window.alert("Invalid username or password.");
       setEpass('');
