@@ -45,10 +45,9 @@ const Patients = () => {
   return (
     <div>
       <div className="grid-1-1">
-        <div className="font">PATIENTS</div>
+        <div className="font"><h3>PATIENTS</h3></div>
         
-        <input type="text" onChange={handleFilter} value={filter} />
-        <div className="button">Filter Search</div>
+        <input type="text" placeholder="Search" onChange={handleFilter} value={filter} />
       </div>
     
       <table>

@@ -76,14 +76,14 @@ const Employees = () => {
 
   return (
     <div className="font">
-      EMPLOYEES
+      <h3>EMPLOYEES</h3>
       <br/>
       <br/>
       <button onClick={showAllStaff}>All Staff</button>
       <button onClick={showBusyStaff}>Busy Staff</button>
       <button onClick={showDocPat}>Doctors By Patient</button>
 
-    
+
       {showAS && <Allstaff dt={docTable} nt={nurseTable} />}
       {showBS && <Busystaff dt={docTable} nt={nurseTable} bd={busyDocs} bn={busyNurses} />}
       {bp && <DocPatients dp={docPatients} />}
@@ -91,7 +91,7 @@ const Employees = () => {
       <br/>
       <br/>
       <br/>
-      Open Rooms
+      <h3>Open Rooms</h3>
       <table id="openRooms">
         <thead>
           <tr>
