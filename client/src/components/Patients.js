@@ -25,22 +25,26 @@ const Patients = () => {
   }
 
   async function addPatient(event) {
-    const patient = {
-      patient_fName: pfName,
-      patient_mName: pmName,
-      patient_lName: plName,
-      doctor_ID: Number(docID),
-      nurse_ID: Number(nurseID),
-      deceased: 0
-    };
+    if (window.confirm(`Add ${pfName} ${plName}?`)) {
+      const patient = {
+        patient_fName: pfName,
+        patient_mName: pmName,
+        patient_lName: plName,
+        doctor_ID: Number(docID),
+        nurse_ID: Number(nurseID),
+        deceased: 0
+      };
 
-    await tableServices.addPatient(patient);
-    setPfName("");
-    setPmName("");
-    setPlName("");
-    setDocID("");
-    setNurseID("");
-    setShowAP(false);
+      await tableServices.addPatient(patient);
+      setPfName("");
+      setPmName("");
+      setPlName("");
+      setDocID("");
+      setNurseID("");
+      setShowAP(false);
+    } else {
+      event.preventDefault();
+    }
   }
 
   function handleFilter(event) {
