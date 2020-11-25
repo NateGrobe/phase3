@@ -18,7 +18,7 @@ const Covid = () => {
   const [showCP, setShowCP] = useState(true);
   const [showCR, setShowCR] = useState(false);
   const [showHR, setShowHR] = useState(false);
-  const [covidFilter, setCovidFilter] = useState('');
+  const [showCD, setShowCD] = useState(false);
 
   async function getTodaysCovidData() {
     const data = await covidServices.getCaseCount();
@@ -65,22 +65,30 @@ const Covid = () => {
     setShowCP(true);
     setShowCR(false);
     setShowHR(false);
+    setShowCD(false);
   }
 
   function showCovidRisk() {
     setShowCP(false);
     setShowCR(true);
     setShowHR(false);
+    setShowCD(false);
   }
 
   function showHeartRisk() {
     setShowCP(false);
     setShowCR(false);
     setShowHR(true);
+    setShowCD(false);
   }
 
-  const filteredCovidData = covidData.filter(d =>
-  d.country.toUpperCase().includes(covidFilter.toUpperCase()));
+  function showCovidData() {
+    setShowCP(false);
+    setShowCR(false);
+    setShowHR(false);
+    setShowCD(true);
+  }
+
 
   const hrpid = heartRisk.map(hr => hr.patient_ID);
   const hrp = patientTable.filter(p => hrpid.includes(p.patient_ID));
@@ -88,21 +96,20 @@ const Covid = () => {
   return (
     <div className="covidCounter grid-1-1">
       <div className="textCenter">
-        <p>Total Covid-19 Cases in Canada: {totalCases}</p>
-        <p>New Cases Today: {newCases}</p>
+        <p><b>Total Covid-19 Cases in Canada:</b> {totalCases}</p>
+        <p><b>New Cases Today:</b> {newCases}</p>
 
         <button onClick={showCovidPatients}>Covid Patients</button>
         <button onClick={showCovidRisk}>Covid Risk Patients</button>
         <button onClick={showHeartRisk}>Heart Risk Patients</button>
+        <button onClick={showCovidData}>Global Covid Data</button>
     
         {showCP && <Covidcases cp={covidPatients} />}
         {showCR && <Covidrisk cr={covidRisk} />}
         {showHR && <Heartrisk hr={hrp} />}
 
-        <h3>Global Covid Data</h3>
       </div>
-      <input value={covidFilter} placeholder="Search" type="text" onChange={({ target }) => setCovidFilter(target.value)} />
-      <CovidByCountry cd={filteredCovidData} />
+      {showCD && <CovidByCountry cd={covidData} />}
     </div>
   );
 };
