@@ -120,6 +120,11 @@ ul.navBar > li > span:hover {
 
 }
 
+.loginInput {
+    width: 50%;
+    margin-bottom: 20px;
+}
+
 .titlePage {
     color: white;
     position: fixed;

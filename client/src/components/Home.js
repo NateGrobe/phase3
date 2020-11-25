@@ -46,9 +46,9 @@ const Home = () => {
     return (
       <div className="signIn">
         <form onSubmit={handleSignIn}>
-          Employee: <input type="text" value={eid} onChange={({ target }) => setEid(target.value)}/>
+          Employee: <input className="loginInput" type="text" value={eid} onChange={({ target }) => setEid(target.value)}/>
           <br/>
-          Password: <input type='password' value={epass} onChange={({ target }) => setEpass(target.value)}/>
+          Password: <input className="loginInput" type='password' value={epass} onChange={({ target }) => setEpass(target.value)}/>
           <br/>
           <button type='submit'>Sign in</button>
         </form>
