@@ -2,6 +2,7 @@ body {
     background-image: url("hospitalWallpaper.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-size: cover;
     margin: 20;
     padding-top: 80px;
 }
@@ -23,7 +24,6 @@ ul.navBar {
     padding: 0;
     overflow: hidden;
     background-color: #333;
-    /*width: max-content;*/
     margin: 0 auto;
     height: 100px;
     margin-left: -20px;
@@ -41,7 +41,6 @@ ul.navBar > li > span {
     line-height: 50px;
     height: 50px;
     font-size: 35px;
-    /*font-family: 'Oswald', sans-serif;*/
     font-family: 'Aldrich', sans-serif;
 }
 ul.navBar > li > span:hover {

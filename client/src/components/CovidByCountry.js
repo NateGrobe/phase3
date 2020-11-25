@@ -5,13 +5,13 @@ const CovidByCountry = ({ cd }) => {
     <table>
       <thead>
         <tr>
-          <td>Country</td>
-          <td>New Confirmed</td>
-          <td>Total Confirmed</td>
-          <td>New Deaths</td>
-          <td>Total Deaths</td>
-          <td>New Recovered</td>
-          <td>Total Recovered</td>
+          <th>Country</th>
+          <th>New Confirmed</th>
+          <th>Total Confirmed</th>
+          <th>New Deaths</th>
+          <th>Total Deaths</th>
+          <th>New Recovered</th>
+          <th>Total Recovered</th>
         </tr>
       </thead>
       <tbody>
