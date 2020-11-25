@@ -99,7 +99,7 @@ const Covid = () => {
       {showHR && <Heartrisk hr={hrp} />}
 
       <h3>Global Covid Data</h3>
-      <input value={covidFilter} onChange={({ target }) => setCovidFilter(target.value)} />
+      <input value={covidFilter} placeholder="Search" type="text" onChange={({ target }) => setCovidFilter(target.value)} />
       <CovidByCountry cd={filteredCovidData} />
     </div>
   );
