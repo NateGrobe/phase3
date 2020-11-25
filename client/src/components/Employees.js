@@ -4,6 +4,7 @@ import tableServices from '../services/tableServices';
 import DocPatients from './DocPatients';
 import Allstaff from './Allstaff';
 import Busystaff from './Busystaff';
+import Rooms from './Rooms';
 
 const Employees = () => {
   const [docTable, setDocTable] = useState([]);
@@ -15,6 +16,7 @@ const Employees = () => {
   const [bp, setBp] = useState(false);
   const [showAS, setShowAS] = useState(true);
   const [showBS, setShowBS] = useState(false);
+  const [showRooms, setShowRooms] = useState(false);
 
   // move this to patients page
   async function getView4() {
@@ -60,18 +62,28 @@ const Employees = () => {
     setShowAS(true);
     setShowBS(false);
     setBp(false);
+    setShowRooms(false);
   }
 
   function showBusyStaff() {
     setShowAS(false);
     setShowBS(true);
     setBp(false);
+    setShowRooms(false);
   }
 
   function showDocPat() {
     setShowAS(false);
     setShowBS(false);
     setBp(true);
+    setShowRooms(false);
+  }
+
+  function showOpenRooms() {
+    setShowAS(false);
+    setShowBS(false);
+    setBp(false);
+    setShowRooms(true);
   }
 
   return (
@@ -82,32 +94,14 @@ const Employees = () => {
       <button onClick={showAllStaff}>All Staff</button>
       <button onClick={showBusyStaff}>Busy Staff</button>
       <button onClick={showDocPat}>Doctors By Patient</button>
+      <button onClick={showOpenRooms}>Open Rooms</button>
 
 
       {showAS && <Allstaff dt={docTable} nt={nurseTable} />}
       {showBS && <Busystaff dt={docTable} nt={nurseTable} bd={busyDocs} bn={busyNurses} />}
       {bp && <DocPatients dp={docPatients} />}
+      {showRooms && <Rooms or={openRooms} />}
 
-      <br/>
-      <br/>
-      <br/>
-      <h3>Open Rooms</h3>
-      <table id="openRooms">
-        <thead>
-          <tr>
-            <th>Room Number</th>
-            <th>Room Type</th>
-          </tr>
-        </thead>
-        <tbody>
-          {openRooms.map(room =>
-            <tr key={room.room_ID}>
-              <td>{room.room_ID}</td>
-              <td>{room.room_Type}</td>
-            </tr>
-          )}
-        </tbody>
-      </table>
     </div>
   );
 };
