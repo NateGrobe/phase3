@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const Home = () => {
   const [login, setLogin] = useState(false);
@@ -6,20 +7,36 @@ const Home = () => {
   const [epass, setEpass] = useState('');
   const [signedIn, setSignedIn] = useState(false);
 
+  let history = useHistory();
+
+  useEffect(() => {
+    const loggedUser = window.localStorage.getItem('loggedUser');
+    if (loggedUser) {
+      setLogin(false);
+      setSignedIn(true);
+    }
+  }, []);
+
   const showLogin = () => setLogin(true);
 
   function handleSignIn(event) {
     event.preventDefault();
     if (eid.length > 0 && epass === 'pass') {
-      window.alert("Welcome!");
       setLogin(false);
       setEid('');
       setEpass('');
       setSignedIn(true);
+      window.localStorage.setItem('loggedUser', eid);
     } else {
       window.alert("Invalid username or password.");
       setEpass('');
     }
+  }
+
+  function handleSignOut() {
+    window.localStorage.removeItem('loggedUser');
+    setSignedIn(false);
+    history.push('/');
   }
 
   const loginForm = () => {
@@ -47,8 +64,11 @@ const Home = () => {
           </div>}
 
           {signedIn === true &&
-            <div className="welcome">
-              Welcome back 
+            <div>
+              <div className="welcome">
+                Welcome back 
+              </div>
+              <button onClick={handleSignOut}>Signout</button>
             </div>
           }
 

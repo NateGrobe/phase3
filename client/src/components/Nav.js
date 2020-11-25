@@ -7,23 +7,47 @@ const Nav = () => {
     let history = useHistory();
 
     function linkHome() {
-      history.push("/");
+      history.push('/');
     }
 
     function linkPatients() {
-      history.push("/patients");
+      const loggedUser = window.localStorage.getItem('loggedUser');
+      if (!loggedUser){
+        history.push('/');
+        window.alert('Please log in');
+      } else {
+        history.push('/patients');
+      }
     }
 
     function linkEmployees() {
-      history.push("/employees");
+      const loggedUser = window.localStorage.getItem('loggedUser');
+      if (!loggedUser){
+        history.push('/');
+        window.alert('Please log in');
+      } else {
+        history.push("/employees");
+      }
     }
 
     function linkBilling() {
-      history.push("/billing");
+      const loggedUser = window.localStorage.getItem('loggedUser');
+      if (!loggedUser){
+        history.push('/');
+        window.alert('Please log in');
+      } else {
+        history.push("/billing");
+      }
     }
 
     function linkCovid() {
-      history.push("/covid");
+      const loggedUser = window.localStorage.getItem('loggedUser');
+      if (!loggedUser){
+        history.push('/');
+        window.alert('Please log in');
+      } else {
+        history.push("/covid");
+      }
     }
 
 
