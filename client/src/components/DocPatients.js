@@ -2,12 +2,14 @@ import React from 'react';
 
 const DocPatients = ({ dp }) => {
   return (
+    <div>
+      <h3>Doctors By Patient</h3>
     <table>
       <thead>
         <tr>
-          <td>Name</td>
-          <td>Specialty</td>
-          <td>Patient</td>
+          <th>Name</th>
+          <th>Specialty</th>
+          <th>Patient</th>
         </tr>
       </thead>
       <tbody>
@@ -20,6 +22,7 @@ const DocPatients = ({ dp }) => {
         )}
       </tbody>
     </table>
+    </div>
   );
 };
 

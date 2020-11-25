@@ -10,11 +10,11 @@ const Busystaff = ({ dt, nt, bd, bn }) => {
 
   // not sure I like the appearance of this table but I guess it could be worse
   return (
+    <div>
+      <h3>Doctors</h3>
+    
     <table>
       <thead>
-        <tr>
-          <th colSpan='2'>Doctors</th>
-        </tr>
         <tr>
           <th>Name</th>
           <th>Speciaty</th>
@@ -28,9 +28,13 @@ const Busystaff = ({ dt, nt, bd, bn }) => {
         </tr>
         )}
       </tbody>
+    </table>
+    <h3>Nurses</h3>
+    <table>
       <thead>
         <tr>
-          <th colSpan='2'>Nurses</th>
+          <th>Name</th>
+          <th>Speciaty</th>
         </tr>
       </thead>
       <tbody>
@@ -42,6 +46,7 @@ const Busystaff = ({ dt, nt, bd, bn }) => {
         )}
       </tbody>
     </table>
+    </div>
   );
 };
 

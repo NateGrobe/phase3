@@ -47,8 +47,8 @@ const Home = () => {
           </div>}
 
           {signedIn === true &&
-            <div className="titlePage">
-              Welcome
+            <div className="welcome">
+              Welcome back 
             </div>
           }
 

@@ -85,7 +85,7 @@ const Covid = () => {
     <div className="covidCounter grid-1-1">
       <button onClick={updateStats}>Update Covid Stats</button>
       <p>Total Covid-19 Cases in Canada: {totalCases}</p>
-      <p>Today: {newCases}</p>
+      <p>New Cases Today: {newCases}</p>
 
       <button onClick={showCovidPatients}>Covid Patients</button>
       <button onClick={showCovidRisk}>Covid Risk Patients</button>
