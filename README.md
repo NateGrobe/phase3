@@ -104,7 +104,7 @@ http://localhost:5000/api/tables/doctors
 ##### Nurses Table:
 http://localhost:5000/api/tables/nurses
 
-#### Patient Visit Table:
+##### Patient Visit Table:
 http://localhost:5000/api/tables/patient-visit
 
 ##### Covid Table
