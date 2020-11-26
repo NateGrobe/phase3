@@ -8,7 +8,7 @@ const Patient = function(p) {
   this.doctor_ID = p.doctor_ID;
   this.nurse_ID = p.nurse_ID;
   this.deceased = p.deceased;
-}
+};
 
 tableRouter.get('/billing', (req, res) => {
   sql.query(`

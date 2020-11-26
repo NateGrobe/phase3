@@ -62,7 +62,7 @@ const Home = () => {
       {login === false &&
         <div>
         <div className="titlePage">
-          Hospital Tech Industries
+          Frontline Assist
         </div>
           {signedIn === false &&
           <div className="LogIn" onClick={showLogin}>
