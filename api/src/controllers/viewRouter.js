@@ -61,7 +61,7 @@ viewRouter.get('/doctors-patients', (req, res) => {
 // view 5
 viewRouter.get('/covid-risk', (req, res) => {
   sql.query(`
-    SELECT p.patient_ID, p.patient_fName, p.patient_lName FROM hospital_data.patients AS p
+    SELECT p.patient_fName, p.patient_lName FROM hospital_data.patients AS p
     WHERE patient_ID = ANY
       (SELECT pv.patient_ID FROM hospital_data.patient_visit AS pv
       WHERE pv.diagnosis LIKE '%heart%' OR pv.diagnosis LIKE '%cardiac%')
