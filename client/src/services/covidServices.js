@@ -31,10 +31,18 @@ async function updateCovidData() {
     updatedData.push(country);
   }
 
+  if (currentData.data.length === 0) {
+    for(let i = 0; i < data.length; i++) {
+      await axios.post(url, updatedData[i]);
+    }
+    const res = await axios.get(url);
+    return res.data;
+  }
+
   if (!(currentData.data[181].total_cases === updatedData[181].total_cases)) {
     await axios.delete(url);
     for(let i = 0; i < data.length; i++) {
-      await axios.post(url, currentData[i]);
+      await axios.post(url, updatedData[i]);
     }
   }
 
